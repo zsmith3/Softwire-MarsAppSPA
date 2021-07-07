@@ -1,20 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 
-export default class ButtonCounter extends React.Component<{}, { clickCount: number }> {
-    state = {
-        clickCount: parseInt(window.localStorage.getItem("clickCount") || '0')
-    }
+function updateCount(clickCount: number, setClickCount: (newCount: number) => void) {
+    window.localStorage.setItem("clickCount", (clickCount + 1).toString());
+    setClickCount(clickCount + 1);
+}
 
-    updateCount = () => {
-        window.localStorage.setItem("clickCount", (this.state.clickCount + 1).toString());
-        this.setState({clickCount: this.state.clickCount + 1});
-    }
+export default function ButtonCounter (props: {}, state: { clickCount: number }) {
+    const [clickCount, setClickCount] = useState(parseInt(window.localStorage.getItem("clickCount") || '0'));
 
-    render() {
-        return <div>
-            <h2>Button Click Counter</h2>
-            <button onClick={this.updateCount}>Click me!</button>
-            <p>The button has been clicked {this.state.clickCount} times.</p>
-        </div>;
-    }
+    return <div>
+        <h2>Button Click Counter</h2>
+        <button onClick={() => updateCount(clickCount, setClickCount)}>Click me!</button>
+        <p>The button has been clicked {clickCount} times.</p>
+    </div>;
 }
