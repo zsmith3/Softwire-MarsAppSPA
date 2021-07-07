@@ -10,5 +10,22 @@
 
 .AppHeader li {
     display: inline;
-    margin: 10px;
+    margin: 0 30px;
+}
+
+$primaryColor: #4E2EE1;
+$navBarHeight: 48px;
+
+.navBar {
+    background-color: $primaryColor;
+    top: 0;
+    color: white;
+    height: $navBarHeight;
+}
+
+.navBar a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: $navBarHeight;
 }

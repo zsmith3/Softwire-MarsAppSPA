@@ -9,7 +9,7 @@ export default function App() {
     return (
         <BrowserRouter>
             <header className="AppHeader">
-                <div>
+                <div className="navBar">
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/nasa">NASA</Link></li>
