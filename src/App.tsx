@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import NasaInfo from "./components/NasaInfo";
 import ButtonCounter from "./components/ButtonCounter";
 import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
