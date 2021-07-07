@@ -1,10 +1,7 @@
 import React from "react";
 import CounterValue from "./CounterValue";
 
-
-export default function CounterInfo (props: {}, state: {}) {
-
-
+export default function CounterInfo () {
     return <div>
         <CounterValue/>
     </div>;
