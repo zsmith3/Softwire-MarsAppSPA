@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 function updateCount(clickCount: number, setClickCount: (newCount: number) => void) {
     window.localStorage.setItem("clickCount", (clickCount + 1).toString());
@@ -7,6 +7,10 @@ function updateCount(clickCount: number, setClickCount: (newCount: number) => vo
 
 export default function ButtonCounter (props: {}, state: { clickCount: number }) {
     const [clickCount, setClickCount] = useState(parseInt(window.localStorage.getItem("clickCount") || '0'));
+
+    useEffect(() => {
+        document.title = "Button Click Counter";
+    });
 
     return <div>
         <h2>Button Click Counter</h2>
