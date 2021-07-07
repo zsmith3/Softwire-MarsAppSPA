@@ -2,20 +2,15 @@ import React from 'react';
 import './App.scss';
 import NasaInfo from "./components/NasaInfo";
 import ButtonCounter from "./components/ButtonCounter";
-import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 import HomePage from "./components/HomePage";
+import NavBar from "./components/NavBar/NavBar";
 
 export default function App() {
     return (
         <BrowserRouter>
             <header className="AppHeader">
-                <div className="navBar">
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/nasa">NASA</Link></li>
-                        <li><Link to="/counter">Counter</Link></li>
-                    </ul>
-                </div>
+                <NavBar />
             </header>
 
             <main className="App">
