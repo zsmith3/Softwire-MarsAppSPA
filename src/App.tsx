@@ -3,11 +3,12 @@ import './App.css';
 import NasaInfo from "./components/NasaInfo";
 import ButtonCounter from "./components/ButtonCounter";
 import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
+import HomePage from "./components/HomePage";
 
 export default function App() {
     return (
         <BrowserRouter>
-            <header>
+            <header className="AppHeader">
                 <div>
                     <ul>
                         <li><Link to="/">Home</Link></li>
@@ -24,6 +25,9 @@ export default function App() {
                     </Route>
                     <Route path="/counter">
                         <ButtonCounter/>
+                    </Route>
+                    <Route path="/">
+                        <HomePage />
                     </Route>
                 </Switch>
             </main>
