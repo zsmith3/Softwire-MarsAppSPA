@@ -8,6 +8,7 @@ export default function NavBar() {
             <NavBarLink to="/" text="Home" />
             <NavBarLink to="/nasa" text="NASA" />
             <NavBarLink to="/counters" text="Counters" />
+            <NavBarLink to="/mars" text="Mars Photos" />
         </ul>
     </div>;
 }
