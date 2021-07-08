@@ -7,8 +7,7 @@ export default function NavBar() {
         <ul>
             <NavBarLink to="/" text="Home" />
             <NavBarLink to="/nasa" text="NASA" />
-            <NavBarLink to="/counter" text="Counter" />
-            <NavBarLink to="/counter2" text="Counter v2" />
+            <NavBarLink to="/counters" text="Counters" />
             <NavBarLink to="/roverimages" text="Rover Image Search" />
         </ul>
     </div>;
