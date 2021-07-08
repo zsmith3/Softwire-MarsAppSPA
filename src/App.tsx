@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar/NavBar";
 import {CounterProvider} from "./contexts/CounterContext";
 import Counter from "./components/Counter";
+import ImageResult from "./components/ImageResults/ImageResult";
 
 export default function App() {
     return (
@@ -28,7 +29,7 @@ export default function App() {
                         </CounterProvider>
                     </Route>
                     <Route path="/roverimages">
-
+                        <ImageResult/>
                     </Route>
                     <Route path="/">
                         <HomePage />
