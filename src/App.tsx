@@ -1,34 +1,27 @@
 import React from 'react';
 import './App.scss';
-import NasaInfo from "./components/NasaInfo";
-import ButtonCounter from "./components/ButtonCounter";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import HomePage from "./components/HomePage";
+import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar/NavBar";
-import {CounterProvider} from "./contexts/CounterContext";
-import Counter from "./components/Counter";
+import CountersPage from "./pages/CountersPage";
+import NasaInfoPage from "./pages/NasaInfoPage";
 
 export default function App() {
     return (
         <BrowserRouter>
             <header className="AppHeader">
-                <NavBar />
+                <NavBar/>
             </header>
             <main className="App">
                 <Switch>
                     <Route path="/nasa">
-                        <NasaInfo/>
+                        <NasaInfoPage/>
                     </Route>
-                    <Route path="/counter">
-                        <ButtonCounter/>
-                    </Route>
-                    <Route path="/counter2">
-                        <CounterProvider>
-                            <Counter/>
-                        </CounterProvider>
+                    <Route path="/counters">
+                        <CountersPage/>
                     </Route>
                     <Route path="/">
-                        <HomePage />
+                        <HomePage/>
                     </Route>
                 </Switch>
             </main>
