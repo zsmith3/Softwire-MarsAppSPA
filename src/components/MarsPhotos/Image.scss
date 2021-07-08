@@ -1,0 +1,67 @@
+$primaryColor: #4E2EE1;
+
+div.Image {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+  height: 300px;
+}
+
+div.Image:hover {
+  border: 1px solid #777;
+}
+
+div.Image img {
+  width: 100%;
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  vertical-align: middle;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.imageContainer {
+  height: 180px;
+}
+
+.imageHelper {
+  vertical-align: middle;
+  height: 100%;
+  display: inline-block
+}
+
+
