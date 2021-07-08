@@ -15,7 +15,9 @@ div.Image {
   border: 1px solid #ccc;
   display: inline-block;
   width: 180px;
-  height: 240px;
+  height: 300px;
+  background-color: white;
+  z-index: 1;
 }
 
 div.Image:hover {
@@ -74,4 +76,41 @@ div.desc {
   display: inline-block
 }
 
+.imageContainer span { /*CSS for enlarged image*/
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px;
+  width:70vh;
+  opacity: 0;
+  transition: 0.5s;
+  text-decoration: none;
+  z-index: initial;
+}
+
+.imageContainer span img { /*CSS for enlarged image*/
+  border-width: 0px;
+  width: 65vh;
+  padding: 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.imageContainer:hover span { /*CSS for enlarged image on hover*/
+  opacity: 1;
+  pointer-events: none;
+}
+
+#overlay {
+  position: fixed;
+  width: 300vh;
+  height: 300vh;
+  left: 0;
+  top: 0;
+  margin-left: calc(-100vw + 50%);
+  margin-top: calc(-100vh + 50%);
+  background: rgba(51, 51, 51, 0.7);
+  z-index: -3;
+  pointer-events: none;
+}
 

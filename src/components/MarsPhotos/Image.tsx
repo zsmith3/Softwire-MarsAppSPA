@@ -8,6 +8,10 @@ export default function Image(props: {photo: Photo}) {
             <div className="imageContainer">
                 <div className="imageHelper"></div>
                 <img src={props.photo.img_src}/>
+                <span>
+                    <div id="overlay"></div>
+                    <img src={props.photo.img_src}/>
+                </span>
             </div>
 
             <div className="desc">
