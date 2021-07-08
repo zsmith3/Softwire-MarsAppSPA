@@ -2,18 +2,18 @@ import React from 'react';
 import './App.scss';
 import NasaInfo from "./components/NasaInfo";
 import ButtonCounter from "./components/ButtonCounter";
-import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar/NavBar";
 import {CounterProvider} from "./contexts/CounterContext";
 import Counter from "./components/Counter";
-import ImageResult from "./components/ImageResults/ImageResult";
+import ImagePage from "./components/ImageResults/ImagePage";
 
 export default function App() {
     return (
         <BrowserRouter>
             <header className="AppHeader">
-                <NavBar />
+                <NavBar/>
             </header>
             <main className="App">
                 <Switch>
@@ -29,10 +29,10 @@ export default function App() {
                         </CounterProvider>
                     </Route>
                     <Route path="/roverimages">
-                        <ImageResult/>
+                        <ImagePage/>
                     </Route>
                     <Route path="/">
-                        <HomePage />
+                        <HomePage/>
                     </Route>
                 </Switch>
             </main>
