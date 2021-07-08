@@ -5,6 +5,7 @@ div.Image {
   border: 1px solid #ccc;
   float: left;
   width: 180px;
+  height: 300px;
 }
 
 div.Image:hover {
@@ -14,6 +15,9 @@ div.Image:hover {
 div.Image img {
   width: 100%;
   height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  vertical-align: middle;
 }
 
 div.desc {
@@ -49,3 +53,15 @@ div.desc {
   display: table;
   clear: both;
 }
+
+.imageContainer {
+  height: 180px;
+}
+
+.imageHelper {
+  vertical-align: middle;
+  height: 100%;
+  display: inline-block
+}
+
+

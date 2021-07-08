@@ -3,10 +3,9 @@ import './App.scss';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import NavBar from "./components/NavBar/NavBar";
-import MarsPhotos from "./components/MarsPhotos/MarsPhotos";
 import CountersPage from "./pages/CountersPage";
 import NasaInfoPage from "./pages/NasaInfoPage";
-import ImagePage from "./components/ImageResults/ImagePage";
+import MarsPhotosPage from "./pages/MarsPhotosPage";
 
 export default function App() {
     return (
@@ -23,7 +22,7 @@ export default function App() {
                         <CountersPage/>
                     </Route>
                     <Route path="/mars">
-                        <ImagePage />
+                        <MarsPhotosPage />
                     </Route>
                     <Route path="/">
                         <HomePage/>
