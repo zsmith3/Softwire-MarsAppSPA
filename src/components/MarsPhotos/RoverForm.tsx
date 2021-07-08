@@ -41,6 +41,9 @@ export default function RoverForm() {
                 onChange={option => updateRover(option)} isLoading={!rovers.length}/>
         <br/>
         <Select options={cameraOptions} onChange={option => updateCamera(option)}/>
+        <br />
         <span>{error}</span>
+        <br />
+        <button>Submit</button>
     </div>;
 }
