@@ -17,6 +17,8 @@ export default function MarsPhotos() {
     }
 
     return <div>
+        <h2>Mars Rover Photos</h2>
+
         <RoverForm onSubmit={onFormSubmit} />
 
         <ImageResult photoList={photos}/>

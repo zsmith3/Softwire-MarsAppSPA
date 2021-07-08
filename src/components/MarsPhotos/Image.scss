@@ -1,9 +1,19 @@
 $primaryColor: #4E2EE1;
 
+.imageList {
+  padding: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+  .imageList {
+    text-align: left;
+  }
+}
+
 div.Image {
   margin: 5px;
   border: 1px solid #ccc;
-  float: left;
+  display: inline-block;
   width: 180px;
   height: 240px;
 }
