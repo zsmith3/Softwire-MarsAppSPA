@@ -27,6 +27,9 @@ export default function App() {
                             <Counter/>
                         </CounterProvider>
                     </Route>
+                    <Route path="/roverimages">
+
+                    </Route>
                     <Route path="/">
                         <HomePage />
                     </Route>
