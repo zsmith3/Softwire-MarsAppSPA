@@ -7,7 +7,7 @@ export default function Image(props: {photo: Photo}) {
         <div className="Image">
             <div className="imageContainer">
                 <div className="imageHelper"></div>
-                <img src={props.photo.img_src}/>
+                <img src={props.photo.img_src} alt={`ID: ${props.photo.id}`}/>
                 <span>
                     <div id="overlay"></div>
                     <img src={props.photo.img_src}/>

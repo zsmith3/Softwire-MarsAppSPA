@@ -12,7 +12,7 @@ interface OptionObject {
 
 type Option = OptionObject | null;
 
-export default function RoverForm(props: {onSubmit: (roverName: string, cameraName: string, sol: number) => void}) {
+export default function RoverForm(props: { onSubmit: (roverName: string, cameraName: string, sol: number) => void }) {
     const [rovers, setRovers] = useState<Rover[]>([]);
     const [currentRover, setCurrentRover] = useState<Rover | null>(null);
     const [currentCamera, setCurrentCamera] = useState<Camera | null>(null);
@@ -32,6 +32,12 @@ export default function RoverForm(props: {onSubmit: (roverName: string, cameraNa
         setCurrentCamera((option && currentRover) ? (currentRover.cameras.find(camera => camera.name === option.value) || null) : null)
     }
 
+    function updateSol(sol: number) {
+        if (sol < 0) setCurrentSol(0);
+        else if (!currentRover || sol <= currentRover.max_sol) setCurrentSol(sol);
+        else setCurrentSol(currentRover.max_sol);
+    }
+
     const cameraOptions = currentRover ? currentRover.cameras.map(camera => ({
         value: camera.name,
         label: camera.full_name
@@ -42,11 +48,14 @@ export default function RoverForm(props: {onSubmit: (roverName: string, cameraNa
                 onChange={option => updateRover(option)} isLoading={!rovers.length}/>
         <br/>
         <Select options={cameraOptions} onChange={option => updateCamera(option)}/>
-        <br />
-        <input className="text-input" placeholder="Enter Sol" type="number" value={currentSol} onChange={event => setCurrentSol(parseInt(event.target.value))} />
-        <br />
+        <br/>
+        <input className="text-input" placeholder="Enter Sol" type="number" value={currentSol} min={0} max={currentRover ? currentRover.max_sol : ""}
+               onChange={event => updateSol(parseInt(event.target.value))}/>
+        <br/>
         <span>{error}</span>
-        <br />
-        <button disabled={!(currentRover && currentCamera)} onClick={() => currentRover && currentCamera && props.onSubmit(currentRover.name, currentCamera.name, currentSol)}>Submit</button>
+        <br/>
+        <button disabled={!(currentRover && currentCamera)}
+                onClick={() => currentRover && currentCamera && props.onSubmit(currentRover.name, currentCamera.name, currentSol)}>Submit
+        </button>
     </div>;
 }
