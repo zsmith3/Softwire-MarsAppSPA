@@ -1,0 +1,38 @@
+$primaryColor: #4E2EE1;
+$navBarHeight: 48px;
+
+.navBar {
+  background-color: $primaryColor;
+  top: 0;
+  color: white;
+  height: $navBarHeight;
+}
+
+.navBar ul {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.navBar li {
+  display: inline-block;
+  margin: 0;
+  padding: 0 30px;
+  height: $navBarHeight;
+  cursor: pointer;
+}
+
+.navBar li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.navBar-link-current {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.navBar a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  line-height: $navBarHeight;
+}
