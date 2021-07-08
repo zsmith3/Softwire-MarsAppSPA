@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage";
 import NavBar from "./components/NavBar/NavBar";
 import {CounterProvider} from "./contexts/CounterContext";
 import Counter from "./components/Counter";
+import MarsPhotos from "./components/MarsPhotos/MarsPhotos";
 
 export default function App() {
     return (
@@ -26,6 +27,9 @@ export default function App() {
                         <CounterProvider>
                             <Counter/>
                         </CounterProvider>
+                    </Route>
+                    <Route path="/mars">
+                        <MarsPhotos />
                     </Route>
                     <Route path="/">
                         <HomePage />
