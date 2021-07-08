@@ -2,9 +2,10 @@ import RoverForm from "./RoverForm";
 import React, {useEffect, useState} from "react";
 import ImageResult from "./ImageResult";
 import {getPhotos} from "../../api/api";
+import Photo from "../../api/Photo";
 
 export default function MarsPhotos() {
-    const [photos, setPhotos] = useState(null);
+    const [photos, setPhotos] = useState<Photo[] | null>(null);
 
     useEffect(() => {
         document.title = "Mars Photos";

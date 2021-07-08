@@ -10,7 +10,9 @@ export default function Image(props: {photo: Photo}) {
                 <img src={props.photo.img_src}/>
             </div>
 
-            <div className="desc"> This image was taken by {props.photo.rover.name} using the {props.photo.camera.name} Camera <br/></div>
+            <div className="desc">
+                {props.photo.earth_date.toString()}
+            </div>
         </div>
     )
 }
