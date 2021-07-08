@@ -4,7 +4,7 @@ import {CounterProvider} from "../../contexts/CounterContext";
 
 export default function ButtonCounterV2() {
     return <div>
-        <h2>Button Click Counter (using context)</h2>
+        <h3>Button Click Counter (using context)</h3>
         <CounterProvider>
             <Counter/>
         </CounterProvider>
