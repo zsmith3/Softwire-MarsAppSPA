@@ -12,10 +12,11 @@ interface OptionObject {
 
 type Option = OptionObject | null;
 
-export default function RoverForm(props: {onSubmit: (roverName: string, cameraName: string) => void}) {
+export default function RoverForm(props: {onSubmit: (roverName: string, cameraName: string, sol: number) => void}) {
     const [rovers, setRovers] = useState<Rover[]>([]);
     const [currentRover, setCurrentRover] = useState<Rover | null>(null);
     const [currentCamera, setCurrentCamera] = useState<Camera | null>(null);
+    const [currentSol, setCurrentSol] = useState<number>(1000);
     const [error, setError] = useState("");
 
     useEffect(() => {
@@ -42,8 +43,10 @@ export default function RoverForm(props: {onSubmit: (roverName: string, cameraNa
         <br/>
         <Select options={cameraOptions} onChange={option => updateCamera(option)}/>
         <br />
+        <input className="text-input" placeholder="Enter Sol" type="number" value={currentSol} onChange={event => setCurrentSol(parseInt(event.target.value))} />
+        <br />
         <span>{error}</span>
         <br />
-        <button disabled={!(currentRover && currentCamera)} onClick={() => currentRover && currentCamera && props.onSubmit(currentRover.name, currentCamera.name)}>Submit</button>
+        <button disabled={!(currentRover && currentCamera)} onClick={() => currentRover && currentCamera && props.onSubmit(currentRover.name, currentCamera.name, currentSol)}>Submit</button>
     </div>;
 }

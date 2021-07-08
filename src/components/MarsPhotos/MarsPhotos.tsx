@@ -11,8 +11,8 @@ export default function MarsPhotos() {
         document.title = "Mars Photos";
     }, []);
 
-    async function onFormSubmit(roverName: string, cameraName: string) {
-        const responsePhotos = await getPhotos(roverName, cameraName);
+    async function onFormSubmit(roverName: string, cameraName: string, sol: number) {
+        const responsePhotos = await getPhotos(roverName, cameraName, sol);
         setPhotos(responsePhotos);
     }
 
