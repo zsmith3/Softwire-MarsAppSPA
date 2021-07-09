@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import CountersPage from "./pages/CountersPage";
 import NasaInfoPage from "./pages/NasaInfoPage";
 import MarsPhotosPage from "./pages/MarsPhotosPage";
+import APODPage from './pages/APODPage';
 
 export default function App() {
     return (
@@ -23,6 +24,9 @@ export default function App() {
                     </Route>
                     <Route path="/mars">
                         <MarsPhotosPage />
+                    </Route>
+                    <Route path="/apods">
+                        <APODPage />
                     </Route>
                     <Route path="/">
                         <HomePage/>
