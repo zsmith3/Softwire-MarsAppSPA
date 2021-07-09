@@ -1,22 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import Photo from "../../api/Photo";
 import "./Image.scss"
+import Popup from "./Popup";
 
 export default function Image(props: {photo: Photo}) {
+    const [popupVisible, setPopupVisible] = useState(false);
+    const displayPopup = () => setPopupVisible(true)
+
     return (
         <div className="Image">
             <div className="imageContainer">
-                <div className="imageHelper"></div>
-                <img src={props.photo.img_src}/>
-                <span>
-                    <div id="overlay"></div>
-                    <img src={props.photo.img_src}/>
-                </span>
+                <img src={props.photo.img_src} onClick={displayPopup}/>
             </div>
 
-            <div className="desc">
-                {props.photo.earth_date.toString()}
-            </div>
+            <Popup photo={props.photo} visible={popupVisible} setPopupVisible={setPopupVisible}/>
         </div>
     )
 }
