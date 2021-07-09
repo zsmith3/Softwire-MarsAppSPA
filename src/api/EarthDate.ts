@@ -51,6 +51,10 @@ export default class EarthDate {
     gt (otherDate: EarthDate) {
         return otherDate.lt(this);
     }
+
+    equals(date: Date) {
+        return this.year === date.getFullYear() && this.month === date.getMonth() + 1 && this.day === date.getDate();
+    }
 }
 
 export type DateType = "sol" | "earth_date" | null;

@@ -6,7 +6,7 @@ export default function Button() {
 
     return (
         <div>
-            <button onClick={counterContext.increment}>
+            <button className="button" onClick={counterContext.increment}>
                 Click me!
             </button>
         </div>
