@@ -12,7 +12,6 @@ export default function Image(props: {photo: Photo}) {
             <div className="imageContainer">
                 <img src={props.photo.img_src} onClick={displayPopup}/>
             </div>
-
             <Popup photo={props.photo} visible={popupVisible} setPopupVisible={setPopupVisible}/>
         </div>
     )

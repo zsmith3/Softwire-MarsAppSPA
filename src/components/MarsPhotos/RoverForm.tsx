@@ -4,6 +4,8 @@ import {getRovers} from "../../api/api";
 import "./RoverForm.scss";
 import Rover from "../../api/Rover";
 import Camera from "../../api/Camera";
+import DateInput from "./DateInput";
+import {DateType, DateValue} from "../../api/EarthDate";
 
 interface OptionObject {
     value: string;
@@ -12,11 +14,12 @@ interface OptionObject {
 
 type Option = OptionObject | null;
 
-export default function RoverForm(props: {onSubmit: (roverName: string, cameraName: string, sol: number) => void}) {
+export default function RoverForm(props: { onSubmit: (roverName: string, cameraName: string, dateType: DateType, date: DateValue) => void }) {
     const [rovers, setRovers] = useState<Rover[]>([]);
     const [currentRover, setCurrentRover] = useState<Rover | null>(null);
     const [currentCamera, setCurrentCamera] = useState<Camera | null>(null);
-    const [currentSol, setCurrentSol] = useState<number>(1000);
+    const [dateType, setDateType] = useState<DateType>("sol");
+    const [date, setDate] = useState<DateValue>(1000);
     const [error, setError] = useState("");
 
     useEffect(() => {
@@ -29,24 +32,29 @@ export default function RoverForm(props: {onSubmit: (roverName: string, cameraNa
     }
 
     function updateCamera(option: Option) {
-        setCurrentCamera((option && currentRover) ? (currentRover.cameras.find(camera => camera.name === option.value) || null) : null)
+        setCurrentCamera(option && (currentRover?.cameras.find(camera => camera.name === option.value) || null))
     }
 
-    const cameraOptions = currentRover ? currentRover.cameras.map(camera => ({
+    function updateDate(dateType: DateType, date: DateValue) {
+        setDateType(dateType);
+        setDate(date);
+    }
+
+    const cameraOptions = currentRover?.cameras.map(camera => ({
         value: camera.name,
         label: camera.full_name
-    })) : [];
+    }));
 
-    return <div className="rover-form">
+    return <form className="rover-form" action="">
         <Select options={rovers.map(rover => ({value: rover.name, label: rover.name}))}
                 onChange={option => updateRover(option)} isLoading={!rovers.length}/>
         <br/>
         <Select options={cameraOptions} onChange={option => updateCamera(option)}/>
-        <br />
-        <input className="text-input" placeholder="Enter Sol" type="number" value={currentSol} onChange={event => setCurrentSol(parseInt(event.target.value))} />
-        <br />
-        <span>{error}</span>
-        <br />
-        <button disabled={!(currentRover && currentCamera)} onClick={() => currentRover && currentCamera && props.onSubmit(currentRover.name, currentCamera.name, currentSol)}>Submit</button>
-    </div>;
+        <br/>
+        <DateInput onChange={(dateType, date) => updateDate(dateType, date)} maxSol={currentRover?.max_sol} minDate={currentRover?.landing_date} maxDate={currentRover?.max_date} />
+        <p>{error}</p>
+        <button disabled={!(currentRover && currentCamera && dateType)}
+                onClick={event => currentRover && currentCamera && props.onSubmit(currentRover.name, currentCamera.name, dateType, date) && event.preventDefault()}>Submit
+        </button>
+    </form>;
 }
