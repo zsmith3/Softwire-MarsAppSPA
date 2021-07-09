@@ -53,7 +53,7 @@ export default function RoverForm(props: { onSubmit: (roverName: string, cameraN
         <br/>
         <DateInput onChange={(dateType, date) => updateDate(dateType, date)} maxSol={currentRover?.max_sol} minDate={currentRover?.landing_date} maxDate={currentRover?.max_date} />
         <p>{error}</p>
-        <button disabled={!(currentRover && currentCamera && dateType)}
+        <button className="button" disabled={!(currentRover && currentCamera && dateType)}
                 onClick={event => currentRover && currentCamera && props.onSubmit(currentRover.name, currentCamera.name, dateType, date) && event.preventDefault()}>Submit
         </button>
     </form>;

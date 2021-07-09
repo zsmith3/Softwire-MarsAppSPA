@@ -8,13 +8,9 @@ function updateCount(clickCount: number, setClickCount: (newCount: number) => vo
 export default function ButtonCounterV1 (props: {}, state: { clickCount: number }) {
     const [clickCount, setClickCount] = useState(parseInt(window.localStorage.getItem("clickCount") || '0'));
 
-    useEffect(() => {
-        document.title = "Button Click Counter";
-    });
-
     return <div>
         <h3>Button Click Counter (single component, persistent)</h3>
-        <button onClick={() => updateCount(clickCount, setClickCount)}>Click me!</button>
+        <button className="button" onClick={() => updateCount(clickCount, setClickCount)}>Click me!</button>
         <p>The button has been clicked {clickCount} times.</p>
     </div>;
 }
