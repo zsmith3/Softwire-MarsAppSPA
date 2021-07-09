@@ -20,7 +20,8 @@ export default class EarthDate {
                 this.day = parseInt(dateObj.slice(8, 10));
             } else throw "Invalid date format (wrong separators)";
             if (isNaN(this.year) || isNaN(this.month) || isNaN(this.day)) throw "Invalid date format (NaN)";
-        } else {
+        } else if (typeof dateObj === "number") throw "Invalid date format (number)";
+        else {
             this.year = dateObj.year;
             this.month = dateObj.month;
             this.day = dateObj.day;
@@ -52,5 +53,5 @@ export default class EarthDate {
     }
 }
 
-export type DateType = "sol" | "earth_date";
+export type DateType = "sol" | "earth_date" | null;
 export type DateValue = number | string;

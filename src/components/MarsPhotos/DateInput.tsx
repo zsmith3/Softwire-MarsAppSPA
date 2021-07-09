@@ -3,7 +3,8 @@ import EarthDate, {DateType, DateValue} from "../../api/EarthDate";
 
 function getDateError(dateType: DateType, date: DateValue, maxSol?: number, minDate?: EarthDate, maxDate?: EarthDate) {
     if (dateType === "sol") {
-        if (date < 0) return "Please enter a sol greater than zero";
+        if (isNaN(date as number)) return "Please enter a valid sol";
+        else if (date < 0) return "Please enter a sol greater than zero";
         else if (maxSol && date >= maxSol) return `Please enter a sol at most ${maxSol}`;
         else return false;
     } else {
@@ -31,7 +32,7 @@ export default function DateInput(props: { onChange: (dateType: DateType, date: 
 
         if (!getDateError(curDateType, curDate, props.maxSol, props.minDate, props.maxDate)) {
             props.onChange(curDateType, curDateType === "earth_date" ? (new EarthDate(curDate as string)).toRemoteFormat() : curDate);
-        }
+        } else props.onChange(null, "");
     }
 
     return <div>
