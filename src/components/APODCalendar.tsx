@@ -29,14 +29,17 @@ export default function APODCalendar() {
         const curDate = new Date();
         const curEarthDate = new EarthDate({year: curDate.getFullYear(), month: curDate.getMonth() + 1, day: curDate.getDate()} as EarthDate);
         if (curEarthDate.lt(endDate)) endDate = curEarthDate;
-        getAPODs(startDate.toRemoteFormat(), endDate.toRemoteFormat()).then(apods => setApods(apods));
+        getAPODs(startDate.toRemoteFormat(), endDate.toRemoteFormat()).then(apods => {
+            setApods(apods);
+            setLoaded(true);
+        });
     }
 
     return <div>
-        <p>[WIP] Choose a month. Click a day in that month to load images. May take a while. Also they don't display properly yet.</p>
+        {loaded || <p>Loading...</p>}
         <Calendar
             tileContent={({ activeStartDate, date, view }) => getAPODDisplay(view, date)}
-            onChange={setDate}
+            onClickMonth={value => {setDate(value); setLoaded(false)}}
         />
     </div>;
 }
