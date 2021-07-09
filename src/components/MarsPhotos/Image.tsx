@@ -3,7 +3,7 @@ import Photo from "../../api/Photo";
 import "./Image.scss"
 import Popup from "./Popup";
 
-export default function Image(props: {photo: Photo}) {
+export default function Image(props: { photo: Photo }) {
     const [popupVisible, setPopupVisible] = useState(false);
     const displayPopup = () => setPopupVisible(true)
 

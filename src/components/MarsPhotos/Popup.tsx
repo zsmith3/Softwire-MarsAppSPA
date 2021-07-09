@@ -2,8 +2,10 @@ import React from "react";
 import Photo from "../../api/Photo";
 import "./Popup.scss"
 
-export default function Popup(props: { photo: Photo, visible: boolean, setPopupVisible: any}) {
-    const closePopup = () => {props.setPopupVisible(false)}
+export default function Popup(props: { photo: Photo, visible: boolean, setPopupVisible: any }) {
+    const closePopup = () => {
+        props.setPopupVisible(false)
+    }
 
     return (
         <div>
