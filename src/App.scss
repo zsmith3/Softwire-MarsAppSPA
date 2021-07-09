@@ -15,3 +15,8 @@ button {
 button:hover {
     background-color: #6045d5;
 }
+
+button:disabled {
+    pointer-events: none;
+    background-color: #999999;
+}

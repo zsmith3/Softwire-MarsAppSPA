@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import ImageResult from "./ImageResult";
 import {getPhotos} from "../../api/api";
 import Photo from "../../api/Photo";
+import {DateType, DateValue} from "../../api/EarthDate";
 
 export default function MarsPhotos() {
     const [photos, setPhotos] = useState<Photo[] | null>(null);
@@ -11,8 +12,8 @@ export default function MarsPhotos() {
         document.title = "Mars Photos";
     }, []);
 
-    async function onFormSubmit(roverName: string, cameraName: string, sol: number) {
-        const responsePhotos = await getPhotos(roverName, cameraName, sol);
+    async function onFormSubmit(roverName: string, cameraName: string, dateType: DateType, date: DateValue) {
+        const responsePhotos = await getPhotos(roverName, cameraName, dateType, date);
         setPhotos(responsePhotos);
     }
 
